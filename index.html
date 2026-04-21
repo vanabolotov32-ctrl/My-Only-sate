@@ -6,34 +6,51 @@
     <title>Портал user4a</title>
     <style>
         body {
-            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
             display: flex;
             justify-content: center;
-            padding-top: 50px;
+            align-items: center;
             min-height: 100vh;
         }
         .container {
             width: 90%;
-            max-width: 500px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             overflow: hidden;
+            animation: start 0.6s ease-out;
+        }
+        @keyframes start {
+            from { opacity: 0; scale: 0.9; }
+            to { opacity: 1; scale: 1; }
         }
         .header {
-            padding: 20px;
+            padding: 25px;
             text-align: center;
-            background: rgba(255, 255, 255, 0.4);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.3);
         }
-        h1 { margin: 0; font-size: 1.2rem; color: #0d47a1; }
+        .user-icon {
+            width: 60px;
+            height: 60px;
+            background: #0d47a1;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        h1 { margin: 0; font-size: 1.1rem; color: #1a237e; text-transform: uppercase; letter-spacing: 1px; }
         .nav {
             display: flex;
-            background: rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
         .tab {
             flex: 1;
@@ -42,56 +59,59 @@
             background: none;
             cursor: pointer;
             font-size: 14px;
-            color: #555;
+            color: #666;
             transition: 0.3s;
-            border-bottom: 2px solid transparent;
         }
         .tab.active {
             color: #0d47a1;
-            border-bottom: 2px solid #0d47a1;
+            border-bottom: 3px solid #0d47a1;
             font-weight: bold;
         }
-        .content { padding: 30px; text-align: left; min-height: 150px; }
-        .box { animation: fadeIn 0.5s ease; }
+        .content { padding: 25px; min-height: 120px; }
+        .box { animation: slideIn 0.4s ease; }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
         .hidden { display: none; }
         .btn-link {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 20px;
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 14px;
             background: #0d47a1;
             color: white;
             text-decoration: none;
-            border-radius: 10px;
-            font-size: 14px;
+            border-radius: 12px;
+            font-weight: bold;
+            transition: 0.2s;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .btn-link:active { transform: scale(0.95); background: #1565c0; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="header">
+        <div class="user-icon">U</div>
         <h1>Личный кабинет user4a</h1>
     </div>
     
     <div class="nav">
-        <button class="tab active" id="btn-h" onclick="show('h')">Главная</button>
-        <button class="tab" id="btn-c" onclick="show('c')">Создатели</button>
+        <button class="tab active" id="btn-h" onclick="show('h')">ГЛАВНАЯ</button>
+        <button class="tab" id="btn-c" onclick="show('c')">СОЗДАТЕЛИ</button>
     </div>
 
     <div class="content">
         <div id="h" class="box">
-            <h2 style="margin-top:0;">Добро Пожаловать</h2>
-            <p style="color: #666; line-height: 1.5;">Вы успешно авторизованы на персональной странице пользователя user4a. Здесь вы найдете актуальную информацию по проекту.</p>
+            <h2 style="margin-top:0; font-size: 18px;">Добро Пожаловать</h2>
+            <p style="color: #444; font-size: 14px; line-height: 1.6;">Вы находитесь на официальной странице <b>user4a</b>. Сайт полностью настроен и готов к работе.</p>
         </div>
 
         <div id="c" class="box hidden">
-            <h2 style="margin-top:0;">Контакты</h2>
-            <p>Свяжитесь с нами через официальные каналы:</p>
-            <a href="https://www.tiktok.com/@usergogle4a?_r=1&_t=ZP-95i73y0ZHsV" target="_blank" class="btn-link">Перейти в TikTok</a>
+            <h2 style="margin-top:0; font-size: 18px;">Мои ресурсы</h2>
+            <p style="font-size: 14px;">Следите за новыми видео в TikTok:</p>
+            <a href="https://www.tiktok.com/@usergogle4a?_r=1&_t=ZP-95i73y0ZHsV" target="_blank" class="btn-link">Открыть TikTok</a>
         </div>
     </div>
 </div>
@@ -110,3 +130,4 @@
 
 </body>
 </html>
+
