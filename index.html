@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user4a OS</title>
+    <style>
+        body { background-color: #008080; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .window { width: 320px; background: #c0c0c0; border: 3px solid; border-color: #fff #808080 #808080 #fff; box-shadow: 2px 2px 10px #000; }
+        .title-bar { background: #000080; color: #fff; padding: 3px 6px; font-weight: bold; display: flex; justify-content: space-between; }
+        .content { padding: 15px; text-align: center; }
+        .box { background: #fff; border: 2px inset #fff; padding: 10px; margin-top: 10px; min-height: 60px; }
+        button { background: #c0c0c0; border: 2px solid; border-color: #fff #808080 #808080 #fff; padding: 4px 8px; font-weight: bold; }
+        button:active { border-color: #808080 #fff #fff #808080; }
+        .hidden { display: none; }
+        a { color: blue; text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar"><span>SYSTEM_v4a</span><span>[X]</span></div>
+        <div class="content">
+            <button onclick="show('h')">ИНФО</button>
+            <button onclick="show('c')">СОЗДАТЕЛИ</button>
+            <div id="h" class="box">
+                <h2>Добро Пожаловать на сайт user4a</h2>
+            </div>
+            <div id="c" class="box hidden">
+                <p>Мы в ТикТок:</p>
+                <a href="https://www.tiktok.com/" target="_blank">Перейти в TikTok</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function show(id) {
+            document.getElementById('h').classList.add('hidden');
+            document.getElementById('c').classList.add('hidden');
+            document.getElementById(id).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
